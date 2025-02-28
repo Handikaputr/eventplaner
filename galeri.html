@@ -378,6 +378,19 @@
             behavior: 'smooth'
         });
     });
+    document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.querySelector('[data-collapse-toggle="navbar-default"]');
+    const navbarMenu = document.getElementById('navbar-default');
+    
+    toggleButton.addEventListener('click', function() {
+        // Toggle the hidden class on the menu
+        navbarMenu.classList.toggle('hidden');
+        
+        // Update aria-expanded attribute
+        const isExpanded = navbarMenu.classList.contains('hidden') ? 'false' : 'true';
+        toggleButton.setAttribute('aria-expanded', isExpanded);
+    });
+});
 
     
 </script>
