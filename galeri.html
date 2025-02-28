@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woncrew Organizer - Event Planner & Wedding Organizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .transition-nav {
+            transition: all 0.3s ease;
+        }
+        .gallery-item {
+            overflow: hidden;
+        }
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-overlay {
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navbar -->
+    <nav class="bg-white border-gray-200 shadow-md fixed w-full z-50">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="images/logo.jpeg" class="h-10" alt="Woncrew Logo" />
+                <div class="flex flex-col">
+                    <span class="self-center text-xl font-semibold whitespace-nowrap text-blue-800">WONCREW</span>
+                    <span class="text-xs text-gray-600">EVENT PLANNER & WEDDING ORGANIZER</span>
+                </div>
+            </a>
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Buka menu utama</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+                    <li>
+                        <a href="index.html#beranda" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-800 md:p-0">Beranda</a>
+                    </li>
+                    <li>
+                        <a href="index.html#tentang-kami" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-800 md:p-0">Tentang Kami</a>
+                    </li>
+                    <li>
+                        <a href="index.html#paket" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-800 md:p-0">Paket & Harga</a>
+                    </li>
+                    <li>
+                        <a href="index.html#galeri" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-800 md:p-0">Galeri</a>
+                    </li>
+                    <li>
+                        <a href="index.html#testimoni" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-800 md:p-0">Testimoni</a>
+                    </li>
+                    <li>
+                        <a href="index.html#kontak" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-800 md:p-0">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!-- Filter Section -->
+    <section class="py-8 bg-white border-b pt-28 pb-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center">
+                <button class="py-2 px-6 m-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">Semua</button>
+                <button class="py-2 px-6 m-2 bg-gray-200 text-gray-800 rounded-full hover:bg-gray-300 transition">Wedding</button>
+                <button class="py-2 px-6 m-2 bg-gray-200 text-gray-800 rounded-full hover:bg-gray-300 transition">Ulang Tahun</button>
+                <button class="py-2 px-6 m-2 bg-gray-200 text-gray-800 rounded-full hover:bg-gray-300 transition">Corporate Event</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Pantai Kuta Bali" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Pantai Kuta</h3>
+                        <p class="text-white text-sm opacity-90">Bali</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Candi Borobudur" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Candi Borobudur</h3>
+                        <p class="text-white text-sm opacity-90">Magelang</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Gunung Bromo" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Gunung Bromo</h3>
+                        <p class="text-white text-sm opacity-90">Jawa Timur</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Raja Ampat" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Raja Ampat</h3>
+                        <p class="text-white text-sm opacity-90">Papua Barat</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Tari Kecak" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Tari Kecak</h3>
+                        <p class="text-white text-sm opacity-90">Bali</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Danau Toba" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Danau Toba</h3>
+                        <p class="text-white text-sm opacity-90">Sumatera Utara</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Nasi Padang" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Nasi Padang</h3>
+                        <p class="text-white text-sm opacity-90">Kuliner</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Rafting Ayung" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Rafting Sungai Ayung</h3>
+                        <p class="text-white text-sm opacity-90">Aktivitas</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 9 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Taman Nasional Komodo" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Taman Nasional Komodo</h3>
+                        <p class="text-white text-sm opacity-90">NTT</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 10 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Kawah Putih" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Kawah Putih</h3>
+                        <p class="text-white text-sm opacity-90">Jawa Barat</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 11 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Wakatobi" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Wakatobi</h3>
+                        <p class="text-white text-sm opacity-90">Sulawesi Tenggara</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 12 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Dieng Plateau" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Dieng Plateau</h3>
+                        <p class="text-white text-sm opacity-90">Jawa Tengah</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 13 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Tanjung Kelayang" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Tanjung Kelayang</h3>
+                        <p class="text-white text-sm opacity-90">Belitung</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 14 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Satay" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Sate Madura</h3>
+                        <p class="text-white text-sm opacity-90">Kuliner</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 15 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Candi Prambanan" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Candi Prambanan</h3>
+                        <p class="text-white text-sm opacity-90">Yogyakarta</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 16 -->
+                <div class="gallery-item rounded-lg shadow-md overflow-hidden relative">
+                    <img src="images/logo.jpeg" alt="Senggigi Beach" class="w-full h-64 object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white font-bold text-lg">Pantai Senggigi</h3>
+                        <p class="text-white text-sm opacity-90">Lombok</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <nav class="flex items-center space-x-2">
+                    <a href="#" class="px-4 py-2 bg-white rounded border border-gray-300 text-gray-700 hover:bg-gray-50">Previous</a>
+                    <a href="#" class="px-4 py-2 bg-blue-600 rounded text-white hover:bg-blue-700">1</a>
+                    <a href="#" class="px-4 py-2 bg-white rounded border border-gray-300 text-gray-700 hover:bg-gray-50">2</a>
+                    <a href="#" class="px-4 py-2 bg-white rounded border border-gray-300 text-gray-700 hover:bg-gray-50">3</a>
+                    <span class="px-2 text-gray-600">...</span>
+                    <a href="#" class="px-4 py-2 bg-white rounded border border-gray-300 text-gray-700 hover:bg-gray-50">10</a>
+                    <a href="#" class="px-4 py-2 bg-white rounded border border-gray-300 text-gray-700 hover:bg-gray-50">Next</a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Share Experience Section -->
+    <!-- <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Bagikan Pengalaman Wisata Anda</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto mb-8">Kami mengundang Anda untuk berbagi pengalaman wisata dengan mengirimkan foto-foto terbaik dari perjalanan Anda bersama kami.</p>
+            <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-lg text-lg font-semibold transition">Unggah Foto Anda</a>
+        </div>
+    </section> -->
+
+    <!-- Back to Home -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <a href="index.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 transition">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Kembali ke Beranda
+            </a>
+        </div>
+    </section>
+
+
+<!-- Footer -->
+<footer class="bg-blue-900 text-white py-12">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-1">
+                <div class="flex items-center mb-4">
+                    <img src="images/logo.jpeg" alt="Woncrew Logo" class="h-10 w-10 mr-3">
+                    <div>
+                        <h3 class="text-xl font-bold">WONCREW</h3>
+                        <p class="text-xs text-blue-200">EVENT PLANNER & WEDDING ORGANIZER</p>
+                    </div>
+                </div>
+                <p class="text-blue-200 mb-4">Wujudkan acara impian Anda bersama Woncrew Organizer. Kami memberikan layanan perencanaan acara terbaik untuk momen spesial Anda.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-blue-200 hover:text-white">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-blue-200 hover:text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-blue-200 hover:text-white">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="text-blue-200 hover:text-white">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4 border-b border-blue-700 pb-2">Layanan Kami</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-blue-200 hover:text-white">Wedding Organizer</a></li>
+                    <li><a href="#" class="text-blue-200 hover:text-white">Corporate Event</a></li>
+                    <li><a href="#" class="text-blue-200 hover:text-white">Birthday Party</a></li>
+                    <li><a href="#" class="text-blue-200 hover:text-white">Gala Dinner</a></li>
+                    <li><a href="#" class="text-blue-200 hover:text-white">Product Launching</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4 border-b border-blue-700 pb-2">Tautan Cepat</h3>
+                <ul class="space-y-2">
+                    <li><a href="#beranda" class="text-blue-200 hover:text-white">Beranda</a></li>
+                    <li><a href="#tentang-kami" class="text-blue-200 hover:text-white">Tentang Kami</a></li>
+                    <li><a href="#paket" class="text-blue-200 hover:text-white">Paket & Harga</a></li>
+                    <li><a href="#galeri" class="text-blue-200 hover:text-white">Galeri</a></li>
+                    <li><a href="#testimoni" class="text-blue-200 hover:text-white">Testimoni</a></li>
+                    <li><a href="#kontak" class="text-blue-200 hover:text-white">Kontak</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4 border-b border-blue-700 pb-2">Kontak Kami</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-300"></i>
+                        <span class="text-blue-200">Jl. Kebon Jeruk No. 123, Jakarta Barat, DKI Jakarta 11530</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone-alt mt-1 mr-3 text-blue-300"></i>
+                        <span class="text-blue-200">+62 812-3456-7890</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-envelope mt-1 mr-3 text-blue-300"></i>
+                        <span class="text-blue-200">info@woncreworganizer.com</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-clock mt-1 mr-3 text-blue-300"></i>
+                        <span class="text-blue-200">Senin - Jumat: 09.00 - 17.00 WIB</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-12 pt-6 border-t border-blue-800 text-center">
+            <p class="text-blue-200">&copy; 2025 Woncrew Organizer. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="fixed bottom-6 right-6 bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 transition-opacity duration-300 hover:bg-blue-800">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Simple JS for Back to Top functionality -->
+<script>
+    // Back to Top Button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('opacity-100');
+            backToTopButton.classList.remove('opacity-0');
+        } else {
+            backToTopButton.classList.add('opacity-0');
+            backToTopButton.classList.remove('opacity-100');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.querySelector('[data-collapse-toggle="navbar-default"]');
+    const navbarMenu = document.getElementById('navbar-default');
+    
+    toggleButton.addEventListener('click', function() {
+        // Toggle the hidden class on the menu
+        navbarMenu.classList.toggle('hidden');
+        
+        // Update aria-expanded attribute
+        const isExpanded = navbarMenu.classList.contains('hidden') ? 'false' : 'true';
+        toggleButton.setAttribute('aria-expanded', isExpanded);
+    });
+});
+
+    
+</script>
