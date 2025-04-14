@@ -26,8 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Recipients
         $mail->setFrom('WoncrewOrganinzer@gmail.com', 'Woncrew Organnizer');
-        // $mail->addAddress('andry.antok25@gmail.com');
-        $mail->addAddress('pvthandika@gmail.com');
+        $mail->addAddress('andry.antok25@gmail.com');
 
         // Content
         $mail->isHTML(true);
@@ -42,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Reservasi Baru</title>
 </head>
 <body style="font-family: Arial, sans-serif;">
-    <div style="max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd;">
+    <div style="max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd;">r
         <h2 style="color: #1a237e;">Detail Reservasi</h2>
         <table style="width: 100%; border-collapse: collapse;">
             <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Nama:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">' . htmlspecialchars($_POST['name']) . '</td></tr>
